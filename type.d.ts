@@ -69,18 +69,16 @@ declare namespace Components {
             template?: string;
             isDefault?: boolean;
         }
-        export interface FrontAppApiTokenSaveDto {
+        export interface FrontAppApiTokenDto {
             apitoken?: unknown;
             frontappAuthtoken?: unknown;
             companyid?: unknown;
-            teammateid: unknown;
             id: unknown;
         }
         export interface FrontAppMessage {
             conversationid: unknown;
             frontappauthtoken: unknown;
             text: unknown;
-            username: unknown;
         }
         export interface FrontappUpdatetokne {
             apitoken?: unknown;
@@ -650,7 +648,7 @@ declare namespace Paths {
         }
     }
     namespace FrontAppControllerStoreApi {
-        export type RequestBody = Components.Schemas.FrontAppApiTokenSaveDto;
+        export type RequestBody = Components.Schemas.FrontAppApiTokenDto;
         namespace Responses {
             export interface $201 {
             }
