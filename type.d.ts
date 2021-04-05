@@ -29,6 +29,12 @@ declare namespace Components {
             data: number[][];
             zones: ZoneDto[];
         }
+        export interface CreateAdminUserDto {
+            email: string;
+            password: string;
+            firstName: string;
+            lastName: string;
+        }
         export interface CreateCompanyDto {
             email: string;
             name: string;
@@ -40,6 +46,16 @@ declare namespace Components {
             description?: string;
             template?: string;
             isDefault?: boolean;
+        }
+        export interface CreateInboxMailDto {
+            invalidData?: boolean;
+            zipCodeFrom?: string;
+            zipCodeTo?: string;
+            distance?: number;
+            weight?: number;
+            costPerMile?: number;
+            equipmentId?: string;
+            dimension?: string;
         }
         export interface CreateUserDto {
             email: string;
@@ -56,6 +72,19 @@ declare namespace Components {
             email: string;
             password: string;
         }
+        export interface DistanceByCodesRequestDto {
+            zipCodeFrom: string;
+            zipCodeTo: string;
+        }
+        export interface DistanceByCodesResponseDto {
+            distance: number;
+            zipCodeFrom: string;
+            zipCodeTo: string;
+        }
+        export interface DistanceByLocationsRequestDto {
+            locationFrom: string;
+            locationTo: string;
+        }
         export interface EquipmentCollection {
             meta: BaseCollectionMetaResponse;
             data: EquipmentDto[];
@@ -69,16 +98,18 @@ declare namespace Components {
             template?: string;
             isDefault?: boolean;
         }
-        export interface FrontAppApiTokenDto {
+        export interface FrontAppApiTokenSaveDto {
             apitoken?: unknown;
             frontappAuthtoken?: unknown;
             companyid?: unknown;
+            teammateid: unknown;
             id: unknown;
         }
         export interface FrontAppMessage {
             conversationid: unknown;
             frontappauthtoken: unknown;
             text: unknown;
+            username: unknown;
         }
         export interface FrontappUpdatetokne {
             apitoken?: unknown;
@@ -648,7 +679,7 @@ declare namespace Paths {
         }
     }
     namespace FrontAppControllerStoreApi {
-        export type RequestBody = Components.Schemas.FrontAppApiTokenDto;
+        export type RequestBody = Components.Schemas.FrontAppApiTokenSaveDto;
         namespace Responses {
             export interface $201 {
             }
@@ -820,6 +851,61 @@ declare namespace Paths {
             export interface $401 {
             }
             export interface $403 {
+            }
+        }
+    }
+    namespace SudoControllerCreate {
+        export type RequestBody = Components.Schemas.CreateAdminUserDto;
+        namespace Responses {
+            export type $201 = Components.Schemas.UserDto;
+            export interface $409 {
+            }
+        }
+    }
+    namespace SudoControllerCreateInboxMail {
+        namespace Parameters {
+            export type UserId = string;
+        }
+        export interface PathParameters {
+            userId: Parameters.UserId;
+        }
+        export type RequestBody = Components.Schemas.CreateInboxMailDto;
+        namespace Responses {
+            export interface $403 {
+            }
+            export interface $404 {
+            }
+        }
+    }
+    namespace SudoControllerDelete {
+        namespace Parameters {
+            export type CompanyId = string;
+        }
+        export interface PathParameters {
+            companyId: Parameters.CompanyId;
+        }
+        namespace Responses {
+            export interface $204 {
+            }
+            export interface $403 {
+            }
+            export interface $404 {
+            }
+        }
+    }
+    namespace SudoControllerDistanceByLocations {
+        export type RequestBody = Components.Schemas.DistanceByLocationsRequestDto;
+        namespace Responses {
+            export type $200 = Components.Schemas.DistanceByCodesResponseDto;
+            export interface $404 {
+            }
+        }
+    }
+    namespace SudoControllerDistanceByZipCodes {
+        export type RequestBody = Components.Schemas.DistanceByCodesRequestDto;
+        namespace Responses {
+            export type $200 = Components.Schemas.DistanceByCodesResponseDto;
+            export interface $404 {
             }
         }
     }
