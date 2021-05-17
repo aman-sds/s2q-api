@@ -46,6 +46,8 @@ declare namespace Components {
             description?: string;
             template?: string;
             isDefault?: boolean;
+            minimumCost?: number;
+            mphTransitTime?: number;
         }
         export interface CreateInboxMailDto {
             invalidData?: boolean;
@@ -97,6 +99,8 @@ declare namespace Components {
             description?: string;
             template?: string;
             isDefault?: boolean;
+            minimumCost?: number;
+            mphTransitTime?: number;
         }
         export interface FrontAppApiTokenSaveDto {
             apitoken?: unknown;
@@ -150,6 +154,7 @@ declare namespace Components {
             emailsTotal?: number;
             emailListPosition?: number;
             mailData?: MailDataDto;
+            transitTime?: number;
         }
         export interface InviteUserDto {
             token: string;
@@ -228,6 +233,8 @@ declare namespace Components {
             description?: string;
             template?: string;
             isDefault?: boolean;
+            minimumCost?: number;
+            mphTransitTime?: number;
         }
         export interface UpdateInboxMailDataDto {
             equipmentId?: string;
