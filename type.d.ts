@@ -23,7 +23,7 @@ declare namespace Components {
             status: "inactive" | "active" | "blocked";
             domain: string;
             currentEmployees: number;
-            showDashboard: boolean;
+            showDashboard?: boolean;
         }
         export interface ConvertToHtmlDto {
             markDown: string;
