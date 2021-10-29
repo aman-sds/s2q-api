@@ -24,7 +24,7 @@ declare namespace Components {
             domain: string;
             currentEmployees: number;
             showDashboard: boolean;
-            activeTms?: TMSEntity;
+            activeTms?: TmsDTO;
         }
         export interface ConvertToHtmlDto {
             markDown: string;
@@ -382,11 +382,17 @@ declare namespace Components {
             fromList: string;
             adjusted: string;
         }
-        export interface TMSEntity {
-        }
         export interface TestApiDto {
             tmsId: string;
             tmsAuth: unknown;
+        }
+        export interface TmsDTO {
+            id: string; // uuid
+            name: string;
+            authConfig: unknown;
+            icon: string;
+            createdAt: string; // date-time
+            updatedAt: string; // date-time
         }
         export interface TokenPairPayloadDto {
             access: TokenPayloadDto;
