@@ -6,6 +6,17 @@ declare namespace Components {
         export interface CheckCodeDto {
             code: string;
         }
+        export interface CheckPostOrderDto {
+            equipmentId: string;
+            locationFrom?: string;
+            locationTo?: string;
+            clientEmailToken?: string;
+            plugInType?: "frontapp" | "outlook";
+        }
+        export interface CheckPostedOrderMulti {
+            clientEmailToken?: string;
+            plugInType?: "frontapp" | "outlook";
+        }
         export interface CheckTokenDto {
             token: string;
         }
@@ -25,13 +36,14 @@ declare namespace Components {
             currentEmployees: number;
             showDashboard: boolean;
             activeTms?: TmsDTO;
+            activeRate?: TmsRateDTO;
         }
         export interface ConvertToHtmlDto {
             markDown: string;
         }
         export interface CostCollection {
             meta: BaseCollectionMetaResponse;
-            data: number[][];
+            data: any[][];
             zones: ZoneDto[];
         }
         export interface CreateAdminUserDto {
@@ -83,15 +95,35 @@ declare namespace Components {
         }
         export interface DarftDto {
             plugInType: string;
-            clientEmailToken: unknown;
-            text: unknown;
-            locationFrom: unknown;
-            locationTo: unknown;
-            weight: unknown;
-            distance: unknown;
-            cost: unknown;
-            costPerMile: unknown;
-            equipment: unknown;
+            clientEmailToken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
+            locationFrom: {
+                [key: string]: any;
+            };
+            locationTo: {
+                [key: string]: any;
+            };
+            weight: {
+                [key: string]: any;
+            };
+            distance: {
+                [key: string]: any;
+            };
+            cost: {
+                [key: string]: any;
+            };
+            costPerMile: {
+                [key: string]: any;
+            };
+            equipment: {
+                [key: string]: any;
+            };
+            pickupTimestamp?: string; // date-time
+            deliveryTimestamp?: string; // date-time
         }
         export interface DistanceByCodesRequestDto {
             zipCodeFrom: string;
@@ -131,37 +163,87 @@ declare namespace Components {
             margin?: number;
         }
         export interface FrontAppApiTokenSaveDto {
-            apitoken?: unknown;
-            frontappAuthtoken?: unknown;
-            companyid?: unknown;
-            teammateid: unknown;
-            id: unknown;
+            apitoken?: {
+                [key: string]: any;
+            };
+            frontappAuthtoken?: {
+                [key: string]: any;
+            };
+            companyid?: {
+                [key: string]: any;
+            };
+            teammateid: {
+                [key: string]: any;
+            };
+            id: {
+                [key: string]: any;
+            };
         }
         export interface FrontAppMessage {
-            conversationid: unknown;
-            frontappauthtoken: unknown;
-            text: unknown;
-            username: unknown;
-            locationFrom: unknown;
-            locationTo: unknown;
-            weight: unknown;
-            distance: unknown;
-            cost: unknown;
-            costPerMile: unknown;
-            equipment: unknown;
+            conversationid: {
+                [key: string]: any;
+            };
+            frontappauthtoken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
+            username: {
+                [key: string]: any;
+            };
+            locationFrom: {
+                [key: string]: any;
+            };
+            locationTo: {
+                [key: string]: any;
+            };
+            weight: {
+                [key: string]: any;
+            };
+            distance: {
+                [key: string]: any;
+            };
+            cost: {
+                [key: string]: any;
+            };
+            costPerMile: {
+                [key: string]: any;
+            };
+            equipment: {
+                [key: string]: any;
+            };
+            pickupTimestamp?: string; // date-time
+            deliveryTimestamp?: string; // date-time
         }
         export interface FrontAppMessageMulti {
-            parentClientEmailToken: unknown;
-            frontappauthtoken: unknown;
-            text: unknown;
-            username: unknown;
+            parentClientEmailToken: {
+                [key: string]: any;
+            };
+            frontappauthtoken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
+            username: {
+                [key: string]: any;
+            };
             quotes: string[];
         }
         export interface FrontappUpdatetokne {
-            apitoken?: unknown;
-            frontappAuthtoken?: unknown;
-            companyid?: unknown;
-            id: unknown;
+            apitoken?: {
+                [key: string]: any;
+            };
+            frontappAuthtoken?: {
+                [key: string]: any;
+            };
+            companyid?: {
+                [key: string]: any;
+            };
+            id: {
+                [key: string]: any;
+            };
         }
         export interface HotLanesResponseDto {
             city: string;
@@ -235,8 +317,12 @@ declare namespace Components {
         }
         export interface MultiDarftDto {
             plugInType: string;
-            parentClientEmailToken: unknown;
-            text: unknown;
+            parentClientEmailToken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
             quotes: string[];
         }
         export interface MultiInboxFrontAppDto {
@@ -257,6 +343,18 @@ declare namespace Components {
             shipmentId?: number;
             loads?: number;
         }
+        export interface MultiQuoteTmsDTO {
+            plugInType: string;
+            pluginUserEmail?: string;
+            pluginUserName?: string;
+            clientEmailToken: {
+                [key: string]: any;
+            };
+            from?: string;
+            subject?: string;
+            text?: string;
+            quotes: string[];
+        }
         export interface MultiQuoteUpdateDto {
             template?: string;
         }
@@ -264,19 +362,43 @@ declare namespace Components {
             location: LatLongDto[];
         }
         export interface OutlookSaveDto {
-            clientEmailToken: unknown;
-            text: unknown;
-            locationFrom: unknown;
-            locationTo: unknown;
-            weight: unknown;
-            distance: unknown;
-            cost: unknown;
-            costPerMile: unknown;
-            equipment: unknown;
+            clientEmailToken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
+            locationFrom: {
+                [key: string]: any;
+            };
+            locationTo: {
+                [key: string]: any;
+            };
+            weight: {
+                [key: string]: any;
+            };
+            distance: {
+                [key: string]: any;
+            };
+            cost: {
+                [key: string]: any;
+            };
+            costPerMile: {
+                [key: string]: any;
+            };
+            equipment: {
+                [key: string]: any;
+            };
+            pickupTimestamp?: string; // date-time
+            deliveryTimestamp?: string; // date-time
         }
         export interface OutlookSaveMultiDto {
-            parentClientEmailToken: unknown;
-            text: unknown;
+            parentClientEmailToken: {
+                [key: string]: any;
+            };
+            text: {
+                [key: string]: any;
+            };
             quotes: string[];
         }
         export interface PasswordForgotDto {
@@ -301,6 +423,7 @@ declare namespace Components {
             pluginUserEmail?: string;
             pluginUserName?: string;
             businessUnitID?: number;
+            totalCost?: number;
         }
         export interface QuoteDto {
             email: string;
@@ -331,6 +454,11 @@ declare namespace Components {
         export interface QuoteResponseDto {
             data: QuoteDto[];
             total: number;
+        }
+        export interface RateDataDTo {
+            locationFrom: string;
+            locationTo: string;
+            equipmentName: string;
         }
         export interface RebuildInboxFrontAppDto {
             equipmentId: string;
@@ -365,7 +493,15 @@ declare namespace Components {
         }
         export interface SaveAPiDto {
             tmsId: string;
-            tmsAuth: unknown;
+            tmsAuth: {
+                [key: string]: any;
+            };
+        }
+        export interface SaveRateApiDto {
+            tmsRateId: string;
+            tmsRateAuth: {
+                [key: string]: any;
+            };
         }
         export interface StatisticDto {
             id: string; // uuid
@@ -384,15 +520,35 @@ declare namespace Components {
         }
         export interface TestApiDto {
             tmsId: string;
-            tmsAuth: unknown;
+            tmsAuth: {
+                [key: string]: any;
+            };
+        }
+        export interface TestRateApiDto {
+            tmsRateId: string;
+            tmsRateAuth: {
+                [key: string]: any;
+            };
         }
         export interface TmsDTO {
-            id: string; // uuid
-            name: string;
-            authConfig: unknown;
-            icon: string;
-            createdAt: string; // date-time
-            updatedAt: string; // date-time
+            id?: string; // uuid
+            name?: string;
+            authConfig?: {
+                [key: string]: any;
+            };
+            icon?: string;
+            createdAt?: string; // date-time
+            updatedAt?: string; // date-time
+        }
+        export interface TmsRateDTO {
+            id?: string; // uuid
+            name?: string;
+            authConfig?: {
+                [key: string]: any;
+            };
+            icon?: string;
+            createdAt?: string; // date-time
+            updatedAt?: string; // date-time
         }
         export interface TokenPairPayloadDto {
             access: TokenPayloadDto;
@@ -428,7 +584,7 @@ declare namespace Components {
             showDashboard?: boolean;
         }
         export interface UpdateCostDto {
-            data: number[][];
+            data: any[][];
             zones: ZoneDto[];
         }
         export interface UpdateEmployeeDto {
@@ -476,6 +632,11 @@ declare namespace Components {
             registrationComplete?: boolean;
             role?: "admin" | "manager" | "worker";
             status?: "inactive" | "active" | "blocked";
+            datUserName?: string;
+        }
+        export interface UpdateZipCostDto {
+            id: string;
+            cost: number;
         }
         export interface UpdateZoneDto {
             name?: string;
@@ -508,8 +669,14 @@ declare namespace Components {
             isMailConfigured: boolean;
             tokenEmail?: string;
             AccessToken?: string;
+            datUserName?: string;
         }
         export interface UserEntity {
+        }
+        export interface ZipCodePostDto {
+            locationFrom: string;
+            locationTo: string;
+            equipmentId: string;
         }
         export interface ZoneCollection {
             meta: BaseCollectionMetaResponse;
@@ -888,25 +1055,10 @@ declare namespace Paths {
     }
     namespace FrontAppControllerGetdatas {
         namespace Parameters {
-            export interface AllData {
-            }
-            export interface Date {
-            }
             export type DateFrom = string;
             export type DateTo = string;
-            export interface Month {
-            }
-            export interface Token {
-            }
-            export interface Year {
-            }
         }
         export interface QueryParameters {
-            token?: Parameters.Token;
-            allData?: Parameters.AllData;
-            date?: Parameters.Date;
-            month?: Parameters.Month;
-            year?: Parameters.Year;
             dateFrom?: Parameters.DateFrom;
             dateTo?: Parameters.DateTo;
         }
@@ -964,13 +1116,6 @@ declare namespace Paths {
         }
     }
     namespace FrontAppControllerSearchAddres {
-        namespace Parameters {
-            export interface Search {
-            }
-        }
-        export interface QueryParameters {
-            search?: Parameters.Search;
-        }
         namespace Responses {
             export interface $200 {
             }
@@ -1545,6 +1690,20 @@ declare namespace Paths {
             }
         }
     }
+    namespace TmsControllerCheckOrderPosted {
+        export type RequestBody = Components.Schemas.CheckPostOrderDto;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsControllerCheckOrderPostedMulti {
+        export type RequestBody = Components.Schemas.CheckPostedOrderMulti;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
     namespace TmsControllerDeactivate {
         namespace Responses {
             export interface $200 {
@@ -1552,6 +1711,13 @@ declare namespace Paths {
         }
     }
     namespace TmsControllerGetActiveTms {
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsControllerGetPriceFromZip {
+        export type RequestBody = Components.Schemas.ZipCodePostDto;
         namespace Responses {
             export interface $200 {
             }
@@ -1582,6 +1748,13 @@ declare namespace Paths {
             }
         }
     }
+    namespace TmsControllerPostOrderMulti {
+        export type RequestBody = Components.Schemas.MultiQuoteTmsDTO;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
     namespace TmsControllerSaveTms {
         export type RequestBody = Components.Schemas.SaveAPiDto;
         namespace Responses {
@@ -1591,6 +1764,71 @@ declare namespace Paths {
     }
     namespace TmsControllerTestApi {
         export type RequestBody = Components.Schemas.TestApiDto;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsControllerUpdatePice {
+        export type RequestBody = Components.Schemas.UpdateZipCostDto;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerDeactivate {
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerGetActiveTms {
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerGetRate {
+        export type RequestBody = Components.Schemas.RateDataDTo;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerGetRateHistory {
+        export type RequestBody = Components.Schemas.RateDataDTo;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerGetTms {
+        namespace Parameters {
+            export type Id = string;
+        }
+        export interface PathParameters {
+            id: Parameters.Id;
+        }
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerListTms {
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerSaveTms {
+        export type RequestBody = Components.Schemas.SaveRateApiDto;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsRateControllerTestApi {
+        export type RequestBody = Components.Schemas.TestRateApiDto;
         namespace Responses {
             export interface $200 {
             }
