@@ -11,11 +11,11 @@ declare namespace Components {
             locationFrom?: string;
             locationTo?: string;
             clientEmailToken?: string;
-            plugInType?: "frontapp" | "outlook";
+            plugInType?: "frontapp" | "outlook" | "gmail";
         }
         export interface CheckPostedOrderMulti {
             clientEmailToken?: string;
-            plugInType?: "frontapp" | "outlook";
+            plugInType?: "frontapp" | "outlook" | "gmail";
         }
         export interface CheckTokenDto {
             token: string;
@@ -43,7 +43,7 @@ declare namespace Components {
         }
         export interface CostCollection {
             meta: BaseCollectionMetaResponse;
-            data: any[][];
+            data: number[][];
             zones: ZoneDto[];
         }
         export interface CreateAdminUserDto {
@@ -58,6 +58,10 @@ declare namespace Components {
             maxEmployees: number;
             domain: string;
             showDashboard?: boolean;
+        }
+        export interface CreateEquipmentConfigDto {
+            equipmentTypes: string;
+            values: string[];
         }
         export interface CreateEquipmentDto {
             name: string;
@@ -95,35 +99,17 @@ declare namespace Components {
         }
         export interface DarftDto {
             plugInType: string;
-            clientEmailToken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
-            locationFrom: {
-                [key: string]: any;
-            };
-            locationTo: {
-                [key: string]: any;
-            };
-            weight: {
-                [key: string]: any;
-            };
-            distance: {
-                [key: string]: any;
-            };
-            cost: {
-                [key: string]: any;
-            };
-            costPerMile: {
-                [key: string]: any;
-            };
-            equipment: {
-                [key: string]: any;
-            };
-            pickupTimestamp?: string; // date-time
-            deliveryTimestamp?: string; // date-time
+            clientEmailToken: unknown;
+            text: unknown;
+            locationFrom: unknown;
+            locationTo: unknown;
+            weight: unknown;
+            distance: unknown;
+            cost: unknown;
+            costPerMile: unknown;
+            equipment: unknown;
+            pickupTimestamp?: string;
+            deliveryTimestamp?: string;
         }
         export interface DistanceByCodesRequestDto {
             zipCodeFrom: string;
@@ -162,88 +148,45 @@ declare namespace Components {
             mphTransitTime?: number;
             margin?: number;
         }
+        export interface ErrorStoreDto {
+            errorMessage: string;
+            errorStack: string;
+            clientSource: string;
+        }
         export interface FrontAppApiTokenSaveDto {
-            apitoken?: {
-                [key: string]: any;
-            };
-            frontappAuthtoken?: {
-                [key: string]: any;
-            };
-            companyid?: {
-                [key: string]: any;
-            };
-            teammateid: {
-                [key: string]: any;
-            };
-            id: {
-                [key: string]: any;
-            };
+            apitoken?: unknown;
+            frontappAuthtoken?: unknown;
+            companyid?: unknown;
+            teammateid: unknown;
+            id: unknown;
         }
         export interface FrontAppMessage {
-            conversationid: {
-                [key: string]: any;
-            };
-            frontappauthtoken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
-            username: {
-                [key: string]: any;
-            };
-            locationFrom: {
-                [key: string]: any;
-            };
-            locationTo: {
-                [key: string]: any;
-            };
-            weight: {
-                [key: string]: any;
-            };
-            distance: {
-                [key: string]: any;
-            };
-            cost: {
-                [key: string]: any;
-            };
-            costPerMile: {
-                [key: string]: any;
-            };
-            equipment: {
-                [key: string]: any;
-            };
-            pickupTimestamp?: string; // date-time
-            deliveryTimestamp?: string; // date-time
+            conversationid: unknown;
+            frontappauthtoken: unknown;
+            text: unknown;
+            username: unknown;
+            locationFrom: unknown;
+            locationTo: unknown;
+            weight: unknown;
+            distance: unknown;
+            cost: unknown;
+            costPerMile: unknown;
+            equipment: unknown;
+            pickupTimestamp?: string;
+            deliveryTimestamp?: string;
         }
         export interface FrontAppMessageMulti {
-            parentClientEmailToken: {
-                [key: string]: any;
-            };
-            frontappauthtoken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
-            username: {
-                [key: string]: any;
-            };
+            parentClientEmailToken: unknown;
+            frontappauthtoken: unknown;
+            text: unknown;
+            username: unknown;
             quotes: string[];
         }
         export interface FrontappUpdatetokne {
-            apitoken?: {
-                [key: string]: any;
-            };
-            frontappAuthtoken?: {
-                [key: string]: any;
-            };
-            companyid?: {
-                [key: string]: any;
-            };
-            id: {
-                [key: string]: any;
-            };
+            apitoken?: unknown;
+            frontappAuthtoken?: unknown;
+            companyid?: unknown;
+            id: unknown;
         }
         export interface HotLanesResponseDto {
             city: string;
@@ -317,12 +260,8 @@ declare namespace Components {
         }
         export interface MultiDarftDto {
             plugInType: string;
-            parentClientEmailToken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
+            parentClientEmailToken: unknown;
+            text: unknown;
             quotes: string[];
         }
         export interface MultiInboxFrontAppDto {
@@ -337,7 +276,7 @@ declare namespace Components {
             text?: string;
             clientEmailToken?: string;
             parentClientEmailToken?: string;
-            plugInType?: "web" | "frontapp" | "outlook";
+            plugInType?: "web" | "frontapp" | "outlook" | "gmail";
             pluginUserEmail?: string;
             pluginUserName?: string;
             shipmentId?: number;
@@ -347,9 +286,7 @@ declare namespace Components {
             plugInType: string;
             pluginUserEmail?: string;
             pluginUserName?: string;
-            clientEmailToken: {
-                [key: string]: any;
-            };
+            clientEmailToken: unknown;
             from?: string;
             subject?: string;
             text?: string;
@@ -362,43 +299,21 @@ declare namespace Components {
             location: LatLongDto[];
         }
         export interface OutlookSaveDto {
-            clientEmailToken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
-            locationFrom: {
-                [key: string]: any;
-            };
-            locationTo: {
-                [key: string]: any;
-            };
-            weight: {
-                [key: string]: any;
-            };
-            distance: {
-                [key: string]: any;
-            };
-            cost: {
-                [key: string]: any;
-            };
-            costPerMile: {
-                [key: string]: any;
-            };
-            equipment: {
-                [key: string]: any;
-            };
-            pickupTimestamp?: string; // date-time
-            deliveryTimestamp?: string; // date-time
+            clientEmailToken: unknown;
+            text: unknown;
+            locationFrom: unknown;
+            locationTo: unknown;
+            weight: unknown;
+            distance: unknown;
+            cost: unknown;
+            costPerMile: unknown;
+            equipment: unknown;
+            pickupTimestamp?: string;
+            deliveryTimestamp?: string;
         }
         export interface OutlookSaveMultiDto {
-            parentClientEmailToken: {
-                [key: string]: any;
-            };
-            text: {
-                [key: string]: any;
-            };
+            parentClientEmailToken: unknown;
+            text: unknown;
             quotes: string[];
         }
         export interface PasswordForgotDto {
@@ -419,11 +334,13 @@ declare namespace Components {
             subject?: string;
             text?: string;
             clientEmailToken?: string;
-            plugInType?: "frontapp" | "outlook";
+            plugInType?: "frontapp" | "outlook" | "gmail";
             pluginUserEmail?: string;
             pluginUserName?: string;
             businessUnitID?: number;
             totalCost?: number;
+            pickupTimestamp?: string;
+            deliveryTimestamp?: string;
         }
         export interface QuoteDto {
             email: string;
@@ -471,7 +388,7 @@ declare namespace Components {
             subject?: string;
             text?: string;
             clientEmailToken?: string;
-            plugInType?: "web" | "frontapp" | "outlook";
+            plugInType?: "web" | "frontapp" | "outlook" | "gmail";
             pluginUserEmail?: string;
             pluginUserName?: string;
             margin?: number;
@@ -486,22 +403,18 @@ declare namespace Components {
             from?: string;
             subject?: string;
             text?: string;
-            plugInType?: "web" | "frontapp" | "outlook";
+            plugInType?: "web" | "frontapp" | "outlook" | "gmail";
         }
         export interface RefreshTokenDto {
             refreshToken: string;
         }
         export interface SaveAPiDto {
             tmsId: string;
-            tmsAuth: {
-                [key: string]: any;
-            };
+            tmsAuth: unknown;
         }
         export interface SaveRateApiDto {
             tmsRateId: string;
-            tmsRateAuth: {
-                [key: string]: any;
-            };
+            tmsRateAuth: unknown;
         }
         export interface StatisticDto {
             id: string; // uuid
@@ -520,22 +433,16 @@ declare namespace Components {
         }
         export interface TestApiDto {
             tmsId: string;
-            tmsAuth: {
-                [key: string]: any;
-            };
+            tmsAuth: unknown;
         }
         export interface TestRateApiDto {
             tmsRateId: string;
-            tmsRateAuth: {
-                [key: string]: any;
-            };
+            tmsRateAuth: unknown;
         }
         export interface TmsDTO {
             id?: string; // uuid
             name?: string;
-            authConfig?: {
-                [key: string]: any;
-            };
+            authConfig?: unknown;
             icon?: string;
             createdAt?: string; // date-time
             updatedAt?: string; // date-time
@@ -543,9 +450,7 @@ declare namespace Components {
         export interface TmsRateDTO {
             id?: string; // uuid
             name?: string;
-            authConfig?: {
-                [key: string]: any;
-            };
+            authConfig?: unknown;
             icon?: string;
             createdAt?: string; // date-time
             updatedAt?: string; // date-time
@@ -584,7 +489,7 @@ declare namespace Components {
             showDashboard?: boolean;
         }
         export interface UpdateCostDto {
-            data: any[][];
+            data: number[][];
             zones: ZoneDto[];
         }
         export interface UpdateEmployeeDto {
@@ -633,6 +538,7 @@ declare namespace Components {
             role?: "admin" | "manager" | "worker";
             status?: "inactive" | "active" | "blocked";
             datUserName?: string;
+            defaultEquipmentId?: string;
         }
         export interface UpdateZipCostDto {
             id: string;
@@ -670,6 +576,7 @@ declare namespace Components {
             tokenEmail?: string;
             AccessToken?: string;
             datUserName?: string;
+            defaultEquipment?: EquipmentDto;
         }
         export interface UserEntity {
         }
@@ -862,6 +769,52 @@ declare namespace Paths {
             }
         }
     }
+    namespace EquipmentConfigControllerAddEquipmentAlias {
+        export type RequestBody = Components.Schemas.CreateEquipmentConfigDto;
+        namespace Responses {
+            export interface $201 {
+            }
+            export interface $401 {
+            }
+        }
+    }
+    namespace EquipmentConfigControllerDeleteEquipmentConfig {
+        namespace Parameters {
+            export type Id = string;
+        }
+        export interface PathParameters {
+            id: Parameters.Id;
+        }
+        namespace Responses {
+            export interface $204 {
+            }
+            export interface $401 {
+            }
+        }
+    }
+    namespace EquipmentConfigControllerGetListOfEquipmentAlias {
+        namespace Responses {
+            export interface $200 {
+            }
+            export interface $401 {
+            }
+        }
+    }
+    namespace EquipmentConfigControllerUpdateEquipmentConfig {
+        namespace Parameters {
+            export type Id = string;
+        }
+        export interface PathParameters {
+            id: Parameters.Id;
+        }
+        export type RequestBody = Components.Schemas.CreateEquipmentConfigDto;
+        namespace Responses {
+            export interface $200 {
+            }
+            export interface $401 {
+            }
+        }
+    }
     namespace EquipmentControllerCreate {
         namespace Parameters {
             export type CompanyId = string;
@@ -1040,6 +993,12 @@ declare namespace Paths {
             }
         }
     }
+    namespace FrontAppControllerGetErrors {
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
     namespace FrontAppControllerGetMultiQuote {
         namespace Responses {
             export interface $200 {
@@ -1055,10 +1014,25 @@ declare namespace Paths {
     }
     namespace FrontAppControllerGetdatas {
         namespace Parameters {
+            export interface AllData {
+            }
+            export interface Date {
+            }
             export type DateFrom = string;
             export type DateTo = string;
+            export interface Month {
+            }
+            export interface Token {
+            }
+            export interface Year {
+            }
         }
         export interface QueryParameters {
+            token?: Parameters.Token;
+            allData?: Parameters.AllData;
+            date?: Parameters.Date;
+            month?: Parameters.Month;
+            year?: Parameters.Year;
             dateFrom?: Parameters.DateFrom;
             dateTo?: Parameters.DateTo;
         }
@@ -1101,6 +1075,27 @@ declare namespace Paths {
             }
         }
     }
+    namespace FrontAppControllerSaveError {
+        export type RequestBody = Components.Schemas.ErrorStoreDto;
+        namespace Responses {
+            export interface $201 {
+            }
+        }
+    }
+    namespace FrontAppControllerSaveGmail {
+        export type RequestBody = Components.Schemas.OutlookSaveDto;
+        namespace Responses {
+            export interface $201 {
+            }
+        }
+    }
+    namespace FrontAppControllerSaveGmailDataMulti {
+        export type RequestBody = Components.Schemas.OutlookSaveMultiDto;
+        namespace Responses {
+            export interface $201 {
+            }
+        }
+    }
     namespace FrontAppControllerSaveOutlookData {
         export type RequestBody = Components.Schemas.OutlookSaveDto;
         namespace Responses {
@@ -1116,6 +1111,13 @@ declare namespace Paths {
         }
     }
     namespace FrontAppControllerSearchAddres {
+        namespace Parameters {
+            export interface Search {
+            }
+        }
+        export interface QueryParameters {
+            search?: Parameters.Search;
+        }
         namespace Responses {
             export interface $200 {
             }
@@ -1699,6 +1701,13 @@ declare namespace Paths {
     }
     namespace TmsControllerCheckOrderPostedMulti {
         export type RequestBody = Components.Schemas.CheckPostedOrderMulti;
+        namespace Responses {
+            export interface $200 {
+            }
+        }
+    }
+    namespace TmsControllerCreateOrder {
+        export type RequestBody = Components.Schemas.PostOrderDto;
         namespace Responses {
             export interface $200 {
             }
