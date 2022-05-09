@@ -71,6 +71,7 @@ declare namespace Components {
             minimumCost?: number;
             mphTransitTime?: number;
             margin?: number;
+            equipmentAlias: string[];
         }
         export interface CreateInboxMailDto {
             invalidData?: boolean;
@@ -108,6 +109,7 @@ declare namespace Components {
             cost: unknown;
             costPerMile: unknown;
             equipment: unknown;
+            totalTruckCost: unknown;
             pickupTimestamp?: string;
             deliveryTimestamp?: string;
         }
@@ -172,6 +174,7 @@ declare namespace Components {
             cost: unknown;
             costPerMile: unknown;
             equipment: unknown;
+            totalTruckCost: unknown;
             pickupTimestamp?: string;
             deliveryTimestamp?: string;
         }
@@ -235,6 +238,7 @@ declare namespace Components {
             emailListPosition?: number;
             mailData?: MailDataDto;
             transitTime?: number;
+            totalTruckCost?: number;
         }
         export interface InviteUserDto {
             token: string;
@@ -308,6 +312,7 @@ declare namespace Components {
             cost: unknown;
             costPerMile: unknown;
             equipment: unknown;
+            totalTruckCost: unknown;
             pickupTimestamp?: string;
             deliveryTimestamp?: string;
         }
@@ -504,6 +509,7 @@ declare namespace Components {
             minimumCost?: number;
             mphTransitTime?: number;
             margin?: number;
+            equipmentAlias: string[];
         }
         export interface UpdateInboxMailDataDto {
             equipmentId?: string;
@@ -539,6 +545,7 @@ declare namespace Components {
             status?: "inactive" | "active" | "blocked";
             datUserName?: string;
             defaultEquipmentId?: string;
+            signature?: string;
         }
         export interface UpdateZipCostDto {
             id: string;
@@ -577,6 +584,7 @@ declare namespace Components {
             AccessToken?: string;
             datUserName?: string;
             defaultEquipment?: EquipmentDto;
+            signature?: string;
         }
         export interface UserEntity {
         }
