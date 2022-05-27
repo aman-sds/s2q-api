@@ -72,6 +72,7 @@ declare namespace Components {
             mphTransitTime?: number;
             margin?: number;
             equipmentAlias?: string[];
+            fuelSurcharge?:number;
         }
         export interface CreateInboxMailDto {
             invalidData?: boolean;
@@ -150,6 +151,7 @@ declare namespace Components {
             mphTransitTime?: number;
             margin?: number;
             equipmentAlias?: string[];
+            fuelSurcharge?:number;
         }
         export interface ErrorStoreDto {
             errorMessage: string;
@@ -511,6 +513,7 @@ declare namespace Components {
             mphTransitTime?: number;
             margin?: number;
             equipmentAlias?: string[];
+            fuelSurcharge?:number;
         }
         export interface UpdateInboxMailDataDto {
             equipmentId?: string;
