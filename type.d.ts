@@ -37,6 +37,8 @@ declare namespace Components {
             showDashboard: boolean;
             activeTms?: TmsDTO;
             activeRate?: TmsRateDTO;
+            isSamlActive?: boolean;
+            samlRedirectUrl?: string;
         }
         export interface ConvertToHtmlDto {
             markDown: string;
