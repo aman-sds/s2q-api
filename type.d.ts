@@ -505,6 +505,7 @@ declare namespace Components {
         export interface UpdateEmployeeDto {
             role?: "admin" | "manager" | "worker";
             status?: "inactive" | "active" | "blocked";
+            samlStatus?: boolean;
         }
         export interface UpdateEquipmentDto {
             name?: string;
