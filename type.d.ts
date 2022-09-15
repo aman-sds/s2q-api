@@ -591,6 +591,7 @@ declare namespace Components {
             datUserName?: string;
             defaultEquipment?: EquipmentDto;
             signature?: string;
+            samlStatus?: boolean;
         }
         export interface UserEntity {
         }
