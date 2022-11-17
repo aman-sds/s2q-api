@@ -24,6 +24,54 @@ declare namespace Components {
             meta: BaseCollectionMetaResponse;
             data: CompanyDto[];
         }
+        export interface BidRoomCollection {
+            meta: BaseCollectionMetaResponse;
+            data: BidRoomDto[];
+        }
+        export interface BidRoomBidBoards {
+            meta: BaseCollectionMetaResponse;
+            data: BidBoardDetailDto[];
+        }
+
+        export interface BidBoardDetailDto {
+            icon?: string;
+            name?: string;
+            isSaved?: boolean;
+            credentials?: any;
+        }
+
+        export interface BidRoomDto{
+            id: string; // uuid
+            bidBoard?: string;
+            bidID?: string;
+            createdAt: string; // date-time
+            updatedAt: string; // date-time
+            customerId: string;
+            equipment: EquipmentDto;
+            pickup?:string;
+            delivery?:string;
+            pickupDateEarliest?: string;
+            pickupDateLatest?: string;
+            deliveryDateEarliest?: string;
+            deliveryDateLatest?:string;
+            expiryDate?: string;
+            bidRate?: number;
+            isSubmitted?: boolean;
+            specialRequirements?:string[];
+            rateTypeRequested?:string;
+            intermediate?:string;
+            intermediateDateEarliest?:string;
+            intermediateDateLatest?:string;
+            amount?: number;
+            distance?: number;
+            locations?: LatLongDto;
+            clientID?: string;
+            clientSecret?: string;
+            scacID?: string;
+            company?: CompanyDto;
+            pickupPostalCode?: string;
+            deliveryPostalCode?: string;
+        }
         export interface CompanyDto {
             id: string; // uuid
             createdAt: string; // date-time
@@ -37,8 +85,13 @@ declare namespace Components {
             showDashboard: boolean;
             activeTms?: TmsDTO;
             activeRate?: TmsRateDTO;
-            isSamlActive?: boolean;
-            samlRedirectUrl?: string;
+            isSamlActive?:boolean;
+            samlRedirectUrl?:string;
+            activeRatesList?: [];
+            showBidRoom?:boolean;
+            emergeClientID?:string;
+            transplaceClientID?:string;
+            scacID?: string;
         }
         export interface ConvertToHtmlDto {
             markDown: string;
@@ -60,6 +113,7 @@ declare namespace Components {
             maxEmployees: number;
             domain: string;
             showDashboard?: boolean;
+            showBidRoom?:boolean;
         }
         export interface CreateEquipmentConfigDto {
             equipmentTypes: string;
@@ -257,6 +311,8 @@ declare namespace Components {
             city: string[];
             state: string[];
             zipCode: string[];
+            distance: number;
+
         }
         export interface MailDataDto {
             locationFrom?: string;
@@ -497,6 +553,7 @@ declare namespace Components {
             maxEmployees?: number;
             status?: "inactive" | "active" | "blocked";
             showDashboard?: boolean;
+            showBidRoom?:boolean;
         }
         export interface UpdateCostDto {
             data: number[][];
@@ -505,7 +562,6 @@ declare namespace Components {
         export interface UpdateEmployeeDto {
             role?: "admin" | "manager" | "worker";
             status?: "inactive" | "active" | "blocked";
-            samlStatus?: boolean;
         }
         export interface UpdateEquipmentDto {
             name?: string;
@@ -592,7 +648,7 @@ declare namespace Components {
             datUserName?: string;
             defaultEquipment?: EquipmentDto;
             signature?: string;
-            samlStatus?: boolean;
+            samlStatus?:boolean;
         }
         export interface UserEntity {
         }
@@ -612,6 +668,17 @@ declare namespace Components {
             name: string;
             description?: string;
             zipCodes?: string[];
+        }
+
+        export interface TmsZoneDto{
+            cost?: number;
+            equipment?: EquipmentDto;
+            id?: string;
+            locationFrom?: string;
+            locationTo?: string;
+            userRole?:string;
+            zoneFrom?:ZoneDto;
+            zoneTo?: ZoneDto;
         }
     }
 }
@@ -746,6 +813,53 @@ declare namespace Paths {
             }
         }
     }
+
+    namespace BidRoomControllerList {
+        namespace Parameters {
+            export type Limit = number;
+            export type Offset = number;
+            export type OrderDirection = "ASC" | "DESC";
+            export type OrderField = string;
+            export type Search = string;
+            // export type FilterOperatorValues = {operator: string, values:string[]}
+        }
+        export interface QueryParameters {
+            offset?: Parameters.Offset;
+            limit?: Parameters.Limit;
+            orderField?: Parameters.OrderField;
+            orderDirection?: Parameters.OrderDirection;
+            search?: Parameters.Search;
+        }
+        export interface FilterOperatorValues  {operator: string, values:string[]}
+
+        export interface BidroomQueryParameters {
+            offset?: Parameters.Offset;
+            limit?: Parameters.Limit;
+            orderField?: Parameters.OrderField;
+            orderDirection?: Parameters.OrderDirection;
+            search?: Parameters.Search;
+            bidBoard?:any;
+            pickup?: any;
+            delivery?:any;
+            equipment?: any;
+            pickupDateEarliest?:string[];
+            pickupDateLatest?:string[];
+            deliveryDateEarliest?:string[];
+            deliveryDateLatest?:string[];
+            customerId?:FilterOperatorValues;
+            expiryDate?:string[];
+            isSubmitted?:string[];
+            distinct?:string;
+        }
+        namespace Responses {
+            export type $200 = Components.Schemas.BidRoomCollection;
+            export interface $401 {
+            }
+            export interface $403 {
+            }
+        }
+    }
+    
     namespace CompanyControllerList {
         namespace Parameters {
             export type Limit = number;
