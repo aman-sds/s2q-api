@@ -842,12 +842,12 @@ declare namespace Paths {
             pickup?: any;
             delivery?:any;
             equipment?: any;
-            pickupDateEarliest?:string[];
+            pickupDateEarliest?:any;
             pickupDateLatest?:string[];
-            deliveryDateEarliest?:string[];
+            deliveryDateEarliest?:any;
             deliveryDateLatest?:string[];
             customerId?:FilterOperatorValues;
-            expiryDate?:string[];
+            expiryDate?:any;
             isSubmitted?:string[];
             distinct?:string;
         }
