@@ -47,6 +47,8 @@ declare namespace Components {
             createdAt: string; // date-time
             updatedAt: string; // date-time
             customerId: string;
+            equipmentId:string;
+            equipmentName:string;
             equipment: EquipmentDto;
             pickup?:string;
             delivery?:string;
@@ -118,6 +120,9 @@ declare namespace Components {
         export interface CreateEquipmentConfigDto {
             equipmentTypes: string;
             values: string[];
+        }
+        export interface ActiveRatesListDto {
+            data: any;
         }
         export interface CreateEquipmentDto {
             name: string;
