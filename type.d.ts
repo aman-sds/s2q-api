@@ -39,7 +39,14 @@ declare namespace Components {
             isSaved?: boolean;
             credentials?: any;
         }
-
+        export interface IntermediateDto {
+            intermediate?:string,
+            intermediateCity?:string,
+            intermediateState?:string,
+            intermediateDateLatest?:string,
+            intermediatePostalCode?:string,
+            intermediateDateEarliest?:string
+        }
         export interface BidRoomDto{
             id: string; // uuid
             bidBoard?: string;
@@ -61,9 +68,7 @@ declare namespace Components {
             isSubmitted?: boolean;
             specialRequirements?:string[];
             rateTypeRequested?:string;
-            intermediate?:string;
-            intermediateDateEarliest?:string;
-            intermediateDateLatest?:string;
+            intermediateLocations?:IntermediateDto[];
             amount?: number;
             distance?: number;
             locations?: LatLongDto;
