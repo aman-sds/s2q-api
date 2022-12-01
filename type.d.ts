@@ -38,7 +38,7 @@ declare namespace Components {
             name?: string;
             isSaved?: boolean;
             credentials?: any;
-        }
+        } 
         export interface IntermediateDto {
             intermediate?:string,
             intermediateCity?:string,
@@ -858,7 +858,8 @@ declare namespace Paths {
             deliveryDateLatest?:string[];
             customerId?:FilterOperatorValues;
             expiryDate?:any;
-            isSubmitted?:string[];
+            isSubmitted?:any;
+            bidRate?:any;
             distinct?:string;
         }
         namespace Responses {
