@@ -78,6 +78,9 @@ declare namespace Components {
             company?: CompanyDto;
             pickupPostalCode?: string;
             deliveryPostalCode?: string;
+            commodities?:any[];
+            equipmentLength?:any;
+            temperature?:any;
         }
         export interface CompanyDto {
             id: string; // uuid
