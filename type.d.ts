@@ -55,7 +55,7 @@ declare namespace Components {
             updatedAt: string; // date-time
             customerId: string;
             equipmentId:string;
-            equipmentName:string;
+            equipmentTitle:string;
             equipment: EquipmentDto;
             pickup?:string;
             delivery?:string;
