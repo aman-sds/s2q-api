@@ -78,9 +78,6 @@ declare namespace Components {
             company?: CompanyDto;
             pickupPostalCode?: string;
             deliveryPostalCode?: string;
-            commodities?:any[];
-            equipmentLength?:any;
-            temperature?:any;
         }
         export interface CompanyDto {
             id: string; // uuid
@@ -659,9 +656,12 @@ declare namespace Components {
             tokenEmail?: string;
             AccessToken?: string;
             datUserName?: string;
+            revenueCodeId?: string;
+            mcleodUserId?:string;
             defaultEquipment?: EquipmentDto;
             signature?: string;
             samlStatus?:boolean;
+            samlActiveStatus?:string;
         }
         export interface UserEntity {
         }
