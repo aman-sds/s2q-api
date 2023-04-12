@@ -658,6 +658,7 @@ declare namespace Components {
             datUserName?: string;
             revenueCodeId?: string;
             mcleodUserId?:string;
+            mcleodSegmentAllocationCode?:string;
             defaultEquipment?: EquipmentDto;
             signature?: string;
             samlStatus?:boolean;
