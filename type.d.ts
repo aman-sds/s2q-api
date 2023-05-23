@@ -536,11 +536,11 @@ declare namespace Components {
             refresh: TokenPayloadDto;
         }
         export interface TokenPayloadDto {
-            id: string;
+            id?: string;
             token: string;
             userId: string;
-            issuedAt: number;
-            expiredAt: number;
+            issuedAt?: number;
+            expiredAt?: number;
         }
         export interface TopCompaniesResponseDto {
             name: string;
